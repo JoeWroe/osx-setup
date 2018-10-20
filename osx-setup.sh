@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ./functions/ask_to_install.sh
+
 yes="y";
 no="n";
 
@@ -13,16 +15,14 @@ then
     ssh-keygen -t rsa -b 4096 -C "joe_wroe@icloud.com"
 fi
 
-echo ""
-read -p "Would you like to install xcode? Please input y/n.  " current_user_input;
+ask_to_install "Xcode";
 
 if [ "$current_user_input" = "$yes" ];
 then
     xcode-select --install;
 fi
 
-echo ""
-read -p "Would you like to install Homebrew? Please input y/n.  " current_user_input;
+ask_to_install "Homebrew";
 
 if [ "$current_user_input" = "$yes" ];
 then
@@ -30,17 +30,12 @@ then
     brew update;
 fi
 
-echo ""
-read -p "Would you like to install Ruby Version Manager (RVM)? Please input y/n.  " current_user_input;
+ask_to_install "Ruby Version Manager (RVM)"
 
 if [ "$current_user_input" = "$yes" ];
 then
     \curl -L https://get.rvm.io | bash -s stable;
 fi
-
-echo ""
-read -p "Would you like to install Ruby? Please input y/n.  " current_user_input;
-
 
 echo ''
 echo 'Setup Finished!'
