@@ -1,7 +1,6 @@
 #!/bin/bash
 
-source ./functions/ask_to.sh
-source ./functions/install_with.sh
+for file in ./functions/*; do . $file; done
 
 current_user_input=''
 
@@ -16,7 +15,6 @@ install_with 'ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/i
 
 ask_to 'update' 'brew'
 install_with 'brew update'
-echo $current_user_input
 
 ask_to 'install' 'Ruby Version Manager (RVM)'
 if [ '$current_user_input' = 'yes' ]
