@@ -1,8 +1,8 @@
 #!/bin/bash
 
 function install_with {
-    if [ "$current_user_input" = "$yes" ];
+    if [ $current_user_input = yes ]
     then
-        $1;
+        $1
     fi
 }
