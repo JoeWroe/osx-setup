@@ -2,8 +2,6 @@
 
 for file in ./functions/*; do . $file; done
 
-current_user_input=''
-
 ask_to 'setup' 'a public/private key pair'
 check_if_user_input_yes && ssh-keygen -t rsa -b 4096 -C "joe_wroe@icloud.com"
 
