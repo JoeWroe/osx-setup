@@ -15,7 +15,7 @@ ask_to 'update' 'brew'
 check_if_user_input_yes && brew update
 
 ask_to 'install' 'Ruby Version Manager (RVM)'
-check_if_user_input_yes && curl -L https://get.rvm.io | bash -s stable
+check_if_user_input_yes && curl -L https://get.rvm.io | bash -s stable && source /Users/joe-wroe/.rvm/scripts/rvm
 
 echo ''
 echo 'Setup Finished!'
