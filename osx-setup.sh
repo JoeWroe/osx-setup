@@ -20,5 +20,8 @@ check_if_user_input_yes && curl -L https://get.rvm.io | bash -s stable && source
 ask_to 'install' "RVM's default Ruby version"
 check_if_user_input_yes && rvm use ruby --install --default && ruby -v
 
+ask_to 'install' 'PRY'
+check_if_user_input_yes && gem install pry
+
 echo ''
 echo 'Setup Finished!'
