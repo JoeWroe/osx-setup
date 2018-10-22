@@ -29,5 +29,8 @@ check_if_user_input_yes && brew install heroku/brew/heroku
 ask_to 'install' 'iTerm2'
 check_if_user_input_yes && brew cask install iterm2
 
+ask_to 'install' 'Atom'
+check_if_user_input_yes && brew cask install atom
+
 echo ''
 echo 'Setup Finished!'
