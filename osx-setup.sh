@@ -23,5 +23,8 @@ check_if_user_input_yes && rvm use ruby --install --default && ruby -v
 ask_to 'install' 'PRY'
 check_if_user_input_yes && gem install pry
 
+ask_to 'install' 'the Heroku Toolbelt'
+check_if_user_input_yes && brew install heroku/brew/heroku
+
 echo ''
 echo 'Setup Finished!'
