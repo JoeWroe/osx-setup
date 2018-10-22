@@ -26,5 +26,8 @@ check_if_user_input_yes && gem install pry
 ask_to 'install' 'the Heroku Toolbelt'
 check_if_user_input_yes && brew install heroku/brew/heroku
 
+ask_to 'install' 'iTerm2'
+check_if_user_input_yes && brew cask install iterm2
+
 echo ''
 echo 'Setup Finished!'
