@@ -32,5 +32,8 @@ check_if_user_input_yes && brew cask install iterm2
 ask_to 'install' 'Atom'
 check_if_user_input_yes && brew cask install atom
 
+ask_to 'install' 'Google Chrome'
+check_if_user_input_yes && brew cask install google-chrome
+ 
 echo ''
 echo 'Setup Finished!'
