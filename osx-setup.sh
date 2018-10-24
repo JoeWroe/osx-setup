@@ -29,6 +29,12 @@ check_if_user_input_yes && brew cask install atom
 
 ask_to 'install' 'Google Chrome'
 check_if_user_input_yes && brew cask install google-chrome
- 
+
+# ask_to 'add' 'up arrow history search to bash'
+# check_if_user_input_yes && printf "\n# Up arrow history search\nbind \'\"\\e[A\":history-search-backward\'" >> ~/.bashrc && source ~/.bashrc
+
+ask_to 'add' 'git alias "st" for status'
+check_if_user_input_yes && git config --global alias.st status
+
 echo ''
 echo 'Setup Finished!'
