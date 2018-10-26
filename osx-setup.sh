@@ -40,7 +40,7 @@ EOF
 ask_to 'add' 'git alias "st" for status'
 check_if_user_input_yes && git config --global alias.st status
 
-source ~/.bashrc
+source ~/.bash_profile
 
 echo ''
 echo 'Setup Finished!'
