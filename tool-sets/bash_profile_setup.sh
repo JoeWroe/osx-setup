@@ -35,5 +35,10 @@ function setup_bash_profile {
     bind '"\e[B":history-search-forward'
     EOF
 
+    ask_to 'setup' 'prefered list alias'
+    check_if_user_input_yes && cat <<'    EOF' >>~/.bash_profile
+
+    alias ls='ls -FGlAhp'                       # Preferred 'ls' implementation
+    
     source ~/.bash_profile
 }
