@@ -31,7 +31,7 @@ ask_to 'install' 'Google Chrome'
 check_if_user_input_yes && brew cask install google-chrome
 
 ask_to 'setup' 'bash_profile sugar'
-check_if_user_input_yes && setup_bash_profile
+check_if_user_input_yes && setup_bash_sugar
 
 ask_to 'add' 'git alias "st" for status'
 check_if_user_input_yes && git config --global alias.st status

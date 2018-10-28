@@ -1,6 +1,19 @@
 #!/bin/bash
 
-function setup_bash_profile {
+function setup_bash_sugar {
+    ask_to 'add' 'an ascii art header to bash sugar section'
+    check_if_user_input_yes && cat <<'    EOF' >>~/.bash_profile
+
+    #
+    #      _/_/_/      _/_/      _/_/_/  _/    _/        _/_/_/  _/    _/    _/_/_/    _/_/    _/_/_/    
+    #     _/    _/  _/    _/  _/        _/    _/      _/        _/    _/  _/        _/    _/  _/    _/   
+    #    _/_/_/    _/_/_/_/    _/_/    _/_/_/_/        _/_/    _/    _/  _/  _/_/  _/_/_/_/  _/_/_/      
+    #   _/    _/  _/    _/        _/  _/    _/            _/  _/    _/  _/    _/  _/    _/  _/    _/     
+    #  _/_/_/    _/    _/  _/_/_/    _/    _/      _/_/_/      _/_/      _/_/_/  _/    _/  _/    _/      
+    #
+
+    EOF
+                                                                                              
     ask_to 'add' 'a friendly command prompt'
     check_if_user_input_yes && cat <<'    EOF' >>~/.bash_profile
 
@@ -37,8 +50,8 @@ function setup_bash_profile {
 
     ask_to 'setup' 'prefered list alias'
     check_if_user_input_yes && cat <<'    EOF' >>~/.bash_profile
-
     alias ls='ls -FGlAhp'                       # Preferred 'ls' implementation
-    
+    EOF
+
     source ~/.bash_profile
 }
