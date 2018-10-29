@@ -1,7 +1,7 @@
 #!/bin/bash --login
 
 for file in ./helpers/*; do . $file; done
-for tool_set in ./tool-sets/*; do . $tool_set; done
+for tool_set in ./tool-sets/*.sh; do . $tool_set; done
 
 ask_to 'setup' 'a public/private key pair'
 check_if_user_input_yes && ssh-keygen -t rsa -b 4096 -C "joe_wroe@icloud.com"
@@ -30,8 +30,8 @@ check_if_user_input_yes && brew cask install atom
 ask_to 'install' 'Google Chrome'
 check_if_user_input_yes && brew cask install google-chrome
 
-ask_to 'setup' 'bash_profile sugar'
-check_if_user_input_yes && setup_bash_sugar
+ask_to 'setup bash_profile'
+check_if_user_input_yes && setup_bash_profile
 
 ask_to 'add' 'git alias "st" for status'
 check_if_user_input_yes && git config --global alias.st status
