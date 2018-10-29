@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function setup_bash_sugar {
     ask_to 'add' 'an ascii art header to bash sugar section'
     check_if_user_input_yes && cat <<'    EOF' >>~/.bash_profile

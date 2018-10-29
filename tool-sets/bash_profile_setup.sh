@@ -1,5 +1,3 @@
-#!/bin/bash
-
 for file in ./tool-sets/bash_profile/*.sh; do . $file; done
 
 function setup_bash_profile {
