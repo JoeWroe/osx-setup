@@ -1,14 +1,17 @@
 function install_ruby_related_deps {
+red_text=$(tput setaf 1)
+yellow_text=$(tput setaf 3)
+white_text=$(tput setaf 7)
 
 	while [ $current_user_input != exit ]; do
-		read -d '' current_options <<"		EOV"
+		read -d '' current_options <<-EOV
 
 		Please select which Ruby related dependency you would like to install:
 
-		∆ Ruby Version Manager (RVM)
-		∆ RVM's default Ruby version
-		∆ Pry - A Ruby REPL that is a nice alternative to IRB.
-		∆ exit
+		${yellow_text}∆ ${red_text}RVM ${white_text}- Ruby's Version Manager
+		${yellow_text}∆ ${red_text}Ruby ${white_text}- RVM's default version
+		${yellow_text}∆ ${red_text}Pry ${white_text}- A Ruby REPL that is a nice alternative to IRB.
+		${yellow_text}∆ ${red_text}exit ${white_text}
 
 		EOV
 
