@@ -1,6 +1,6 @@
 function setup_bash_sugar {
     ask_to 'add' 'an ascii art header to bash sugar section'
-    check_if_user_input_yes && cat <<'    EOF' >>~/.bash_profile
+    check_user_input yes && cat <<'    EOF' >>~/.bash_profile
 
     #
     #      _/_/_/      _/_/      _/_/_/  _/    _/        _/_/_/  _/    _/    _/_/_/    _/_/    _/_/_/    
@@ -13,7 +13,7 @@ function setup_bash_sugar {
     EOF
                                                                                               
     ask_to 'add' 'a friendly command prompt'
-    check_if_user_input_yes && cat <<'    EOF' >>~/.bash_profile
+    check_user_input yes && cat <<'    EOF' >>~/.bash_profile
 
     # A friendly command prompt
     # ------------------------------------------------
@@ -22,7 +22,7 @@ function setup_bash_sugar {
     EOF
 
     ask_to 'add' 'coloured terminal output'
-    check_if_user_input_yes && cat <<'    EOF' >>~/.bash_profile
+    check_user_input yes && cat <<'    EOF' >>~/.bash_profile
 
     # Coloured Terminal Output
     # ------------------------------------------------
