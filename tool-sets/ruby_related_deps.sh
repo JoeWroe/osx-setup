@@ -6,7 +6,7 @@ white_text=$(tput setaf 7)
 	while [ $current_user_input != exit ]; do
 		read -d '' current_options <<-EOV
 
-		Please select which Ruby related dependency you would like to install:
+		Please select which Ruby related dependency you would like to install (type the phrase in ${red_text}red${white_text}):
 
 		${yellow_text}∆ ${red_text}RVM ${white_text}- Ruby's Version Manager
 		${yellow_text}∆ ${red_text}Ruby ${white_text}- RVM's default version
