@@ -19,16 +19,8 @@ white_text=$(tput setaf 7)
 
 		read current_user_input
 
+		check_user_input RVM && curl -L https://get.rvm.io | bash -s stable && source /Users/joe-wroe/.rvm/scripts/rvm
+		check_user_input Ruby && rvm use ruby --install --default && ruby -v
 		check_user_input Pry && gem install pry
 	done
-
-
-
-    # ---- working stuff ----
-
-    ask_to 'install Ruby Version Manager (RVM)'
-    check_user_input yes && curl -L https://get.rvm.io | bash -s stable && source /Users/joe-wroe/.rvm/scripts/rvm
-
-    ask_to "install RVM's default Ruby version"
-    check_user_input yes && rvm use ruby --install --default && ruby -v
 }
