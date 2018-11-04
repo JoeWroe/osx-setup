@@ -3,38 +3,50 @@
 for file in ./helpers/*; do . $file; done
 for tool_set in ./tool-sets/*.sh; do . $tool_set; done
 
-ask_to 'setup' 'a public/private key pair'
-check_user_input yes && ssh-keygen -t rsa -b 4096 -C "joe_wroe@icloud.com"
+function run_osx_setup {
+red_text=$(tput setaf 1)
+yellow_text=$(tput setaf 3)
+white_text=$(tput setaf 7)
 
-ask_to 'install' 'Xcode'
-check_user_input yes && xcode-select --install
+	while [ "$current_user_input" != exit ]; do
+		read -d '' current_options <<-EOV
 
-ask_to 'install' 'Homebrew'
-check_user_input yes && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+		Please select what you would like to setup. (type the phrase in ${red_text}red${white_text}):
 
-ask_to 'update' 'brew'
-check_user_input yes && brew update
+		${yellow_text}∆ ${red_text}Key pair${white_text} - Setup a public/private key pair.
+		${yellow_text}∆ ${red_text}Xcode${white_text} - Add Apple's IDE.
+		${yellow_text}∆ ${red_text}Homebrew${white_text} - The missing package manager for macOS.
+		${yellow_text}∆ ${red_text}Update Homebrew${white_text} - Usually regularly recommended.
+		${yellow_text}∆ ${red_text}Ruby related tools${white_text} - What you need to develop with Ruby.
+		${yellow_text}∆ ${red_text}Heroku toolbelt${white_text} - For the Heroku Cloud Platform.
+		${yellow_text}∆ ${red_text}iTerm2${white_text} - macOS terminal replacement.
+		${yellow_text}∆ ${red_text}Atom${white_text} - Text based, plug and play, source code editor.
+		${yellow_text}∆ ${red_text}Google Chrome${white_text} - That thing you usually us Internet Explorer to download.
+		${yellow_text}∆ ${red_text}Bash profile${white_text} - Sort out your terminal.
+		${yellow_text}∆ ${red_text}Git aliases${white_text} - Make everyone else's git horrible to use.
+		${yellow_text}∆ ${red_text}Exit${white_text}
+		EOV
 
-ask_to 'setup' 'Ruby related tools'
-check_user_input yes && install_ruby_related_deps
+		echo "$current_options"
 
-ask_to 'install' 'the Heroku Toolbelt'
-check_user_input yes && brew install heroku/brew/heroku
+		read current_user_input
 
-ask_to 'install' 'iTerm2'
-check_user_input yes && brew cask install iterm2
+		check_user_input "Key pair" && ssh-keygen -t rsa -b 4096 -C "joe_wroe@icloud.com"
+		check_user_input "Xcode" && xcode-select --install
+		check_user_input "Homebrew" && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+		check_user_input "Update Homebrew" && brew update
+		check_user_input "Ruby related tools" && check_user_input yes && install_ruby_related_deps
+		check_user_input "Heroku toolbelt" && brew install heroku/brew/heroku
+		check_user_input "iTerm2" && brew cask install iterm2
+		check_user_input "Atom" && brew cask install atom
+		check_user_input "Google Chrome" && brew cask install google-chrome
+		check_user_input "Bash profile" && setup_bash_profile
+		check_user_input "Git aliases" && git config --global alias.st status
 
-ask_to 'install' 'Atom'
-check_user_input yes && brew cask install atom
+	done
+}
 
-ask_to 'install' 'Google Chrome'
-check_user_input yes && brew cask install google-chrome
-
-ask_to 'setup bash_profile'
-check_user_input yes && setup_bash_profile
-
-ask_to 'add' 'git alias "st" for status'
-check_user_input yes && git config --global alias.st status
+run_osx_setup
 
 echo ''
 echo 'Setup Finished!'
