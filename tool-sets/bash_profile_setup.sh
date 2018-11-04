@@ -19,8 +19,6 @@ white_text=$(tput setaf 7)
 
 		read current_user_input
 
-		echo $current_user_input
-
 		check_user_input Sugar && setup_bash_sugar
 		check_user_input Aliases && setup_bash_aliases
 	done
