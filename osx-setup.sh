@@ -35,7 +35,7 @@ white_text=$(tput setaf 7)
 		check_user_input "Xcode" && xcode-select --install
 		check_user_input "Homebrew" && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 		check_user_input "Update Homebrew" && brew update
-		check_user_input "Ruby related tools" && check_user_input yes && install_ruby_related_deps
+		check_user_input "Ruby related tools" && install_ruby_related_deps
 		check_user_input "Heroku toolbelt" && brew install heroku/brew/heroku
 		check_user_input "iTerm2" && brew cask install iterm2
 		check_user_input "Atom" && brew cask install atom

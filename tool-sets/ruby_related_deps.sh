@@ -3,7 +3,7 @@ red_text=$(tput setaf 1)
 yellow_text=$(tput setaf 3)
 white_text=$(tput setaf 7)
 
-	while [ $current_user_input != exit ]; do
+	while [ "$current_user_input" != exit ]; do
 		read -d '' current_options <<-EOV
 
 		Please select which Ruby related dependency you would like to install (type the phrase in ${red_text}red${white_text}):
