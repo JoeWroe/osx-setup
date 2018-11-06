@@ -48,5 +48,7 @@ white_text=$(tput setaf 7)
 
 run_osx_setup
 
+unset current_user_input
+
 echo ''
 echo 'Setup Finished!'
