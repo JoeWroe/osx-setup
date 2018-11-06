@@ -22,5 +22,6 @@ white_text=$(tput setaf 7)
 		check_user_input RVM && curl -L https://get.rvm.io | bash -s stable && source /Users/joe-wroe/.rvm/scripts/rvm
 		check_user_input Ruby && rvm use ruby --install --default && ruby -v
 		check_user_input Pry && gem install pry
+		check_user_input exit && unset current_user_input && break
 	done
 }
