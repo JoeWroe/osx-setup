@@ -21,6 +21,8 @@ white_text=$(tput setaf 7)
 
 		check_user_input "Bash sugar" && setup_bash_sugar
 		check_user_input "Bash aliases" && setup_bash_aliases
+
+		clean_exit
 	done
 
 	source ~/.bash_profile
