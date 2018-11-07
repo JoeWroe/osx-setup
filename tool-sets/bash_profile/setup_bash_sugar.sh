@@ -22,6 +22,8 @@ white_text=$(tput setaf 7)
 		check_user_input "Ascii art" && add_ascii_art_sugar_header
 		check_user_input "Command prompt" && add_command_prompt
 		check_user_input "Coloured output" && add_coloured_terminal_output
+
+		clean_exit
 	done
 }
 
