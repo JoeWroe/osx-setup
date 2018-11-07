@@ -42,7 +42,8 @@ white_text=$(tput setaf 7)
 		check_user_input "Google Chrome" && brew cask install google-chrome
 		check_user_input "Bash profile" && setup_bash_profile
 		check_user_input "Git aliases" && git config --global alias.st status
-		check_user_input "exit" && unset current_user_input && break
+
+		clean_exit
 	done
 }
 
