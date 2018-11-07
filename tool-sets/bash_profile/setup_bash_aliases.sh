@@ -23,6 +23,8 @@ white_text=$(tput setaf 7)
 		check_user_input "Up arrow history search" && add_up_arrow_bash_history_search
 		check_user_input "Down arrow history search" && add_down_arrow_bash_history_search
 		check_user_input "Preferred list" && add_preferred_list_alias
+
+		clean_exit
 	done
 }
 
