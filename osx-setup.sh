@@ -3,6 +3,16 @@
 for file in ./helpers/*; do . $file; done
 for tool_set in ./tool-sets/*.sh; do . $tool_set; done
 
+SCRIPT_NAME=`basename $0`
+NUMBER_OF_EXPECTED_ARGS=0
+WRONG_NUMBER_ARGS_ERROR=85
+
+if [ $# -ne $NUMBER_OF_EXPECTED_ARGS ]
+then
+  echo "`basename $0` takes a different number of args" 
+  exit $WRONG_NUMBER_ARGS_ERROR
+fi
+
 function run_osx_setup {
 red_text=$(tput setaf 1)
 yellow_text=$(tput setaf 3)
