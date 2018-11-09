@@ -61,5 +61,3 @@ run_osx_setup
 
 echo ''
 echo 'Setup Finished!'
-
-exit 0
