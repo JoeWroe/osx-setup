@@ -19,6 +19,8 @@ yellow_text=$(tput setaf 3)
 white_text=$(tput setaf 7)
 
 	while [ "$current_user_input" != exit ]; do
+		clear
+
 		read -d '' current_options <<-EOV
 
 		Please select what you would like to setup. (type the phrase in ${red_text}red${white_text}):
