@@ -43,17 +43,19 @@ white_text=$(tput setaf 7)
 
 		read current_user_input
 
-		check_user_input "Key pair" && ssh-keygen -t rsa -b 4096 -C "joe_wroe@icloud.com"
-		check_user_input "Xcode" && xcode-select --install
-		check_user_input "Homebrew" && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-		check_user_input "Update Homebrew" && brew update
-		check_user_input "Ruby related tools" && install_ruby_related_deps
-		check_user_input "Heroku toolbelt" && brew install heroku/brew/heroku
-		check_user_input "iTerm2" && brew cask install iterm2
-		check_user_input "Atom" && brew cask install atom
-		check_user_input "Google Chrome" && brew cask install google-chrome
-		check_user_input "Bash profile" && setup_bash_profile
-		check_user_input "Git aliases" && git config --global alias.st status
+		current_user_input=$(echo "$current_user_input" | tr '[:upper:]' '[:lower:]')
+
+		check_user_input "key pair" && ssh-keygen -t rsa -b 4096 -C "joe_wroe@icloud.com"
+		check_user_input "xcode" && xcode-select --install
+		check_user_input "homebrew" && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+		check_user_input "update homebrew" && brew update
+		check_user_input "ruby related tools" && install_ruby_related_deps
+		check_user_input "heroku toolbelt" && brew install heroku/brew/heroku
+		check_user_input "iterm2" && brew cask install iterm2
+		check_user_input "atom" && brew cask install atom
+		check_user_input "google chrome" && brew cask install google-chrome
+		check_user_input "bash profile" && setup_bash_profile
+		check_user_input "git aliases" && git config --global alias.st status
 
 		clean_exit
 	done
