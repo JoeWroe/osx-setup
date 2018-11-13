@@ -11,7 +11,7 @@ white_text=$(tput setaf 7)
 		${yellow_text}∆ ${red_text}RVM ${white_text}- Ruby's Version Manager
 		${yellow_text}∆ ${red_text}Ruby ${white_text}- RVM's default version
 		${yellow_text}∆ ${red_text}Pry ${white_text}- A Ruby REPL that is a nice alternative to IRB.
-		${yellow_text}∆ ${red_text}exit ${white_text}
+		${yellow_text}∆ ${red_text}Exit ${white_text}
 
 		EOV
 
@@ -19,9 +19,11 @@ white_text=$(tput setaf 7)
 
 		read current_user_input
 
-		check_user_input RVM && curl -L https://get.rvm.io | bash -s stable && source /Users/joe-wroe/.rvm/scripts/rvm
-		check_user_input Ruby && rvm use ruby --install --default && ruby -v
-		check_user_input Pry && gem install pry
+		current_user_input=$(downcase "$current_user_input")
+
+		check_user_input 'rvm' && curl -L https://get.rvm.io | bash -s stable && source /Users/joe-wroe/.rvm/scripts/rvm
+		check_user_input 'ruby' && rvm use ruby --install --default && ruby -v
+		check_user_input 'pry' && gem install pry
 
 		clean_exit
 	done
