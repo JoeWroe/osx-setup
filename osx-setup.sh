@@ -43,7 +43,7 @@ white_text=$(tput setaf 7)
 
 		read current_user_input
 
-		current_user_input=$(downcase $current_user_input)
+		current_user_input=$(downcase "$current_user_input")
 
 		check_user_input "key pair" && ssh-keygen -t rsa -b 4096 -C "joe_wroe@icloud.com"
 		check_user_input "xcode" && xcode-select --install
