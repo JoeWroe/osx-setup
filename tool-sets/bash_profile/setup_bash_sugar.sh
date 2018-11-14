@@ -19,9 +19,11 @@ white_text=$(tput setaf 7)
 
 		read current_user_input
 
-		check_user_input "Ascii art" && add_ascii_art_sugar_header
-		check_user_input "Command prompt" && add_command_prompt
-		check_user_input "Coloured output" && add_coloured_terminal_output
+		current_user_input=$(downcase "$current_user_input")
+
+		check_user_input "ascii art" && add_ascii_art_sugar_header
+		check_user_input "command prompt" && add_command_prompt
+		check_user_input "coloured output" && add_coloured_terminal_output
 
 		clean_exit
 	done

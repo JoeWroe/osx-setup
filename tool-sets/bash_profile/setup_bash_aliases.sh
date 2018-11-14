@@ -19,10 +19,12 @@ white_text=$(tput setaf 7)
 
 		read current_user_input
 
-		check_user_input "Ascii art" && add_ascii_art_aliases_header
-		check_user_input "Up arrow history search" && add_up_arrow_bash_history_search
-		check_user_input "Down arrow history search" && add_down_arrow_bash_history_search
-		check_user_input "Preferred list" && add_preferred_list_alias
+		current_user_input=$(downcase "$current_user_input")
+
+		check_user_input "ascii art" && add_ascii_art_aliases_header
+		check_user_input "up arrow history search" && add_up_arrow_bash_history_search
+		check_user_input "down arrow history search" && add_down_arrow_bash_history_search
+		check_user_input "preferred list" && add_preferred_list_alias
 
 		clean_exit
 	done
