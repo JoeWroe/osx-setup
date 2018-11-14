@@ -33,6 +33,7 @@ white_text=$(tput setaf 7)
 		${yellow_text}∆ ${red_text}Heroku toolbelt${white_text} - For the Heroku Cloud Platform.
 		${yellow_text}∆ ${red_text}iTerm2${white_text} - macOS terminal replacement.
 		${yellow_text}∆ ${red_text}Atom${white_text} - Text based, plug and play, source code editor.
+		${yellow_text}∆ ${red_text}IntelliJ${white_text} - Because Eclipse sucks.
 		${yellow_text}∆ ${red_text}Google Chrome${white_text} - That thing you usually us Internet Explorer to download.
 		${yellow_text}∆ ${red_text}Bash profile${white_text} - Sort out your terminal.
 		${yellow_text}∆ ${red_text}Git aliases${white_text} - Make everyone else's git horrible to use.
@@ -53,6 +54,7 @@ white_text=$(tput setaf 7)
 		check_user_input "heroku toolbelt" && brew install heroku/brew/heroku
 		check_user_input "iterm2" && brew cask install iterm2
 		check_user_input "atom" && brew cask install atom
+		check_user_input "intellij" && brew cask install intellij-idea
 		check_user_input "google chrome" && brew cask install google-chrome
 		check_user_input "bash profile" && setup_bash_profile
 		check_user_input "git aliases" && git config --global alias.st status
