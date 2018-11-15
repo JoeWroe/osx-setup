@@ -3,13 +3,14 @@
 # should fail with a wrong number of args exit code.
 
 function check_number_of_script_args {
-	SCRIPT_NAME=`basename $0`
-	NUMBER_OF_EXPECTED_ARGS=0
-	WRONG_NUMBER_ARGS_ERROR=85
+	script_name=`basename $0`
+	number_of_args_passed_to_script=$1
+	number_of_expected_args=$2
+	wrong_number_of_args_error=85
 
-	if [ $# -ne $NUMBER_OF_EXPECTED_ARGS ]
+	if [ $number_of_args_passed_to_script -ne $number_of_expected_args ]
 	then
-		echo "${SCRIPT_NAME} takes a different number of args" 
-		exit $WRONG_NUMBER_ARGS_ERROR
+		echo "${script_name} takes ${number_of_expected_args} parameters, it looks like you passed in ${number_of_args_passed_to_script} parameters." 
+		exit $wrong_number_of_args_error
 	fi
 }

@@ -3,7 +3,7 @@
 for file in ./helpers/*; do . $file; done
 for tool_set in ./tool-sets/*.sh; do . $tool_set; done
 
-check_number_of_script_args 1
+check_number_of_script_args $# 0
 
 function run_osx_setup {
 red_text=$(tput setaf 1)
