@@ -15,7 +15,7 @@ white_text=$(tput setaf 7)
 
 		read -d '' current_options <<-EOV
 
-		Please select what you would like to setup. (type the phrase in ${red_text}red${white_text}):
+		Please select what you would like to setup (type the phrase in ${red_text}red${white_text}):
 
 		${yellow_text}∆ ${red_text}Key pair${white_text} - Setup a public/private key pair.
 		${yellow_text}∆ ${red_text}Xcode${white_text} - Add Apple's IDE.
@@ -56,6 +56,8 @@ white_text=$(tput setaf 7)
 }
 
 run_osx_setup
+
+logout
 
 echo ''
 echo 'Setup Finished!'
