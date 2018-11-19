@@ -4,10 +4,7 @@ for file in ./helpers/*; do . $file; done
 for tool_set in ./tool-sets/*.sh; do . $tool_set; done
 
 check_number_of_script_args $# 0
-
-red_text=$(tput setaf 1)
-yellow_text=$(tput setaf 3)
-white_text=$(tput setaf 7)
+set_colours
 
 function run_osx_setup {
 	while [ "$current_user_input" != exit ]; do
