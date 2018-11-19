@@ -1,8 +1,4 @@
 function setup_bash_sugar {
-red_text=$(tput setaf 1)
-yellow_text=$(tput setaf 3)
-white_text=$(tput setaf 7)
-
 	while [ "$current_user_input" != exit ]; do
 		read -d '' current_options <<-EOV
 

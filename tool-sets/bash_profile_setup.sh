@@ -1,10 +1,6 @@
 for file in ./tool-sets/bash_profile/*.sh; do . $file; done
 
 function setup_bash_profile {
-red_text=$(tput setaf 1)
-yellow_text=$(tput setaf 3)
-white_text=$(tput setaf 7)
-
 	while [ "$current_user_input" != exit ]; do
 		read -d '' current_options <<-EOV
 
