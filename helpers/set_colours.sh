@@ -1,4 +1,4 @@
-# This function sets test colours using `tput`
+# This function sets text colours using `tput`
 
 function set_colours {
 	red_text=$(tput setaf 1)
