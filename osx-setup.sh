@@ -27,6 +27,7 @@ function run_osx_setup {
 		${yellow_text}∆ ${red_text}iTerm2${white_text} - macOS terminal replacement.
 		${yellow_text}∆ ${red_text}Atom${white_text} - Text based, plug and play, source code editor.
 		${yellow_text}∆ ${red_text}IntelliJ${white_text} - Because Eclipse sucks.
+		${yellow_text}∆ ${red_text}Webstorm${white_text} - Because JetBrains.
 		${yellow_text}∆ ${red_text}Google Chrome${white_text} - That thing you usually us Internet Explorer to download.
 		${yellow_text}∆ ${red_text}Bash profile${white_text} - Sort out your terminal.
 		${yellow_text}∆ ${red_text}Git aliases${white_text} - Make everyone else's git horrible to use.
@@ -50,6 +51,7 @@ function run_osx_setup {
 		check_user_input "iterm2" && brew cask install iterm2
 		check_user_input "atom" && brew cask install atom
 		check_user_input "intellij" && brew cask install intellij-idea
+		check_user_input "webstorm" && brew cask install webstorm
 		check_user_input "google chrome" && brew cask install google-chrome
 		check_user_input "bash profile" && setup_bash_profile
 		check_user_input "git aliases" && git config --global alias.st status
