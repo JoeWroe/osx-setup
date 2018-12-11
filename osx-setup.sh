@@ -22,7 +22,6 @@ function run_osx_setup {
 		${yellow_text}∆ ${red_text}Update Homebrew${white_text} - Usually regularly recommended.
 		${yellow_text}∆ ${red_text}Ruby related tools${white_text} - What you need to develop with Ruby.
 		${yellow_text}∆ ${red_text}Yarn${white_text} - JavaScript dependency management.
-		${yellow_text}∆ ${red_text}Sass${white_text} - CSS with superpowers.
 		${yellow_text}∆ ${red_text}Heroku toolbelt${white_text} - For the Heroku Cloud Platform.
 		${yellow_text}∆ ${red_text}iTerm2${white_text} - macOS terminal replacement.
 		${yellow_text}∆ ${red_text}Atom${white_text} - Text based, plug and play, source code editor.
@@ -46,7 +45,6 @@ function run_osx_setup {
 		check_user_input "update homebrew" && brew update
 		check_user_input "ruby related tools" && install_ruby_related_deps
 		check_user_input "yarn" && brew install yarn
-		check_user_input "sass" && brew install sass
 		check_user_input "heroku toolbelt" && brew install heroku/brew/heroku
 		check_user_input "iterm2" && brew cask install iterm2
 		check_user_input "atom" && brew cask install atom
