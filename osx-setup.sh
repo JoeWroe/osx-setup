@@ -27,6 +27,7 @@ function run_osx_setup {
 		${yellow_text}∆ ${red_text}Atom${white_text} - Text based, plug and play, source code editor.
 		${yellow_text}∆ ${red_text}IntelliJ${white_text} - Because Eclipse sucks.
 		${yellow_text}∆ ${red_text}Webstorm${white_text} - Because JetBrains.
+		${yellow_text}∆ ${red_text}Docker${white_text} - Pack, ship and run any application as a lightweight container.
 		${yellow_text}∆ ${red_text}Google Chrome${white_text} - That thing you usually us Internet Explorer to download.
 		${yellow_text}∆ ${red_text}Bash profile${white_text} - Sort out your terminal.
 		${yellow_text}∆ ${red_text}Git aliases${white_text} - Make everyone else's git horrible to use.
@@ -39,18 +40,19 @@ function run_osx_setup {
 
 		current_user_input=$(downcase "$current_user_input")
 
-		check_user_input "key pair" && ssh-keygen -t rsa -b 4096 -C "joe_wroe@icloud.com"
+		check_user_input "key pair" && ssh-keygen -t rsa -b 4096 -C "$user_email"
 		check_user_input "xcode" && xcode-select --install
 		check_user_input "homebrew" && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 		check_user_input "update homebrew" && brew update
 		check_user_input "ruby related tools" && install_ruby_related_deps
 		check_user_input "yarn" && brew install yarn
 		check_user_input "heroku toolbelt" && brew install heroku/brew/heroku
-		check_user_input "iterm2" && brew cask install iterm2
-		check_user_input "atom" && brew cask install atom
-		check_user_input "intellij" && brew cask install intellij-idea
-		check_user_input "webstorm" && brew cask install webstorm
-		check_user_input "google chrome" && brew cask install google-chrome
+		check_user_input "iterm2" && brew install iterm2 --cask 
+		check_user_input "atom" && brew install atom --cask 
+		check_user_input "intellij" && brew install intellij-idea --cask 
+		check_user_input "webstorm" && brew install webstorm --cask 
+		check_user_input "docker" && brew install docker
+		check_user_input "google chrome" && brew install google-chrome --cask 
 		check_user_input "bash profile" && setup_bash_profile
 		check_user_input "git aliases" && git config --global alias.st status
 
