@@ -21,6 +21,7 @@ function run_osx_setup {
 		${yellow_text}∆ ${red_text}Homebrew${white_text} - The missing package manager for macOS.
 		${yellow_text}∆ ${red_text}Update Homebrew${white_text} - Usually regularly recommended.
 		${yellow_text}∆ ${red_text}Ruby related tools${white_text} - What you need to develop with Ruby.
+		${yellow_text}∆ ${red_text}Node${white_text} - If you Node, you Node.
 		${yellow_text}∆ ${red_text}Yarn${white_text} - JavaScript dependency management.
 		${yellow_text}∆ ${red_text}Heroku toolbelt${white_text} - For the Heroku Cloud Platform.
 		${yellow_text}∆ ${red_text}iTerm2${white_text} - macOS terminal replacement.
@@ -46,6 +47,7 @@ function run_osx_setup {
 		check_user_input "homebrew" && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 		check_user_input "update homebrew" && brew update
 		check_user_input "ruby related tools" && install_ruby_related_deps
+		check_user_input "node" && brew install node
 		check_user_input "yarn" && brew install yarn
 		check_user_input "heroku toolbelt" && brew install heroku/brew/heroku
 		check_user_input "iterm2" && brew install iterm2 --cask 
