@@ -7,6 +7,9 @@ function install_python_related_deps {
 		${yellow_text}∆ ${red_text}Python 3 ${white_text}- ?Nobody expects the Spanish Inquisition!?
 		${yellow_text}∆ ${red_text}Pipenv ${white_text}- Python package manager.
 		${yellow_text}∆ ${red_text}Pyenv ${white_text}- Simple version manager for Python.
+		${yellow_text}∆ ${red_text}Pip ${white_text}- PIPPIIN!!
+		${yellow_text}∆ ${red_text}Virtualenv ${white_text}- Who knows why?
+		${yellow_text}∆ ${red_text}Pynvim ${white_text}- Neovim Python client.
 		${yellow_text}∆ ${red_text}Exit ${white_text}
 
 		EOV
@@ -20,7 +23,22 @@ function install_python_related_deps {
 		check_user_input 'python 3' && brew install python@3
 		check_user_input 'pipenv' && brew install pipenv
 		check_user_input 'pyenv' && brew install pyenv
+		check_user_input 'pip' && pip3 install --upgrade pip
+		check_user_input 'virtualenv' && pip3 install virtualenv
+		check_user_input 'pynvim' && install_pynvim
 
 		clean_exit
 	done
+}
+
+
+function install_pynvim {
+
+  mkdir -p ~/.virtualenv
+  cd ~/.virtualenv
+  python3 -m venv ./neovim
+  source neovim/bin/activate
+  pip install --upgrade pynvim
+
+  echo "Done!"
 }
