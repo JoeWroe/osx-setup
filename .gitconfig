@@ -1,0 +1,23 @@
+[user]
+    name = Joe Wroe
+    email = jwroe@thoughtworks.com
+[color]
+    ui = true
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+[core]
+    editor = nvim
+[push]
+    default = simple
+[pull]
+    rebase = true
+    autostash = true
+[help]
+    autocorrect = 0
+[alias]
+    st = status
+    eod = push origin +HEAD:joe/eod
+    sod = reset --hard origin/joe/eod
+    patch = "add --intent-to-add . && git add --patch"

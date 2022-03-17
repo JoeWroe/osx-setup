@@ -18,6 +18,8 @@ function run_osx_setup {
 
 		${yellow_text}∆ ${red_text}Key pair${white_text} - Setup a public/private key pair.
 		${yellow_text}∆ ${red_text}Xcode${white_text} - Add Apple's IDE.
+		${yellow_text}∆ ${red_text}ZSH${white_text} - Setup ZSH configuration.
+		${yellow_text}∆ ${red_text}Git${white_text} - Setup Git configuration.
 		${yellow_text}∆ ${red_text}Homebrew${white_text} - The missing package manager for macOS.
 		${yellow_text}∆ ${red_text}Update Homebrew${white_text} - Usually regularly recommended.
 		${yellow_text}∆ ${red_text}Ruby related tools${white_text} - What you need to develop with Ruby.
@@ -46,6 +48,8 @@ function run_osx_setup {
 
 		check_user_input "key pair" && ssh-keygen -t rsa -b 4096 -C "$user_email"
 		check_user_input "xcode" && xcode-select --install
+		check_user_input "zsh" && cp .zshrc ~/.zshrc
+		check_user_input "git" && cp .gitconfig ~/.gitconfig
 		check_user_input "homebrew" && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 		check_user_input "update homebrew" && brew update
 		check_user_input "ruby related tools" && install_ruby_related_deps
