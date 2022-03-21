@@ -35,6 +35,7 @@ function run_osx_setup {
 		${yellow_text}∆ ${red_text}Colima${white_text} - Free containerization, because I won't pay for the Docker license.
 		${yellow_text}∆ ${red_text}Google Chrome${white_text} - That thing you usually us Internet Explorer to download.
 		${yellow_text}∆ ${red_text}Spectacle${white_text} - Like the Matrix, but with windows.
+		${yellow_text}∆ ${red_text}Zoom${white_text} - Fairly stationary video calling.
 		${yellow_text}∆ ${red_text}Bash profile${white_text} - Sort out your terminal.
 		${yellow_text}∆ ${red_text}Git aliases${white_text} - Make everyone else's git horrible to use.
 		${yellow_text}∆ ${red_text}Exit${white_text}
@@ -65,6 +66,7 @@ function run_osx_setup {
 		check_user_input "colima" && brew install colima
 		check_user_input "google chrome" && brew install google-chrome --cask 
 		check_user_input "spectacle" && brew install spectacle --cask 
+		check_user_input "zoom" && brew install zoom
 		check_user_input "bash profile" && setup_bash_profile
 		check_user_input "git aliases" && git config --global alias.st status
 
