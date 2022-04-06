@@ -32,11 +32,13 @@ function run_osx_setup {
 		${yellow_text}∆ ${red_text}IntelliJ${white_text} - Because Eclipse sucks.
 		${yellow_text}∆ ${red_text}Webstorm${white_text} - Because JetBrains.
 		${yellow_text}∆ ${red_text}Docker${white_text} - Pack, ship and run any application as a lightweight container.
+		${yellow_text}∆ ${red_text}Docker Compose${white_text} - Run Docker Compose files.
 		${yellow_text}∆ ${red_text}Colima${white_text} - Free containerization, because I won't pay for the Docker license.
 		${yellow_text}∆ ${red_text}Google Chrome${white_text} - That thing you usually us Internet Explorer to download.
 		${yellow_text}∆ ${red_text}Spectacle${white_text} - Like the Matrix, but with windows.
 		${yellow_text}∆ ${red_text}Zoom${white_text} - Fairly stationary video calling.
 		${yellow_text}∆ ${red_text}Postman${white_text} - Like royal mail for the internet.
+		${yellow_text}∆ ${red_text}Clocker${white_text} - The master of Time.
 		${yellow_text}∆ ${red_text}Bash profile${white_text} - Sort out your terminal.
 		${yellow_text}∆ ${red_text}Git aliases${white_text} - Make everyone else's git horrible to use.
 		${yellow_text}∆ ${red_text}Exit${white_text}
@@ -64,11 +66,13 @@ function run_osx_setup {
 		check_user_input "intellij" && brew install intellij-idea --cask 
 		check_user_input "webstorm" && brew install webstorm --cask 
 		check_user_input "docker" && brew install docker
+		check_user_input "docker compose" && brew install docker-compose
 		check_user_input "colima" && brew install colima
 		check_user_input "google chrome" && brew install google-chrome --cask 
 		check_user_input "spectacle" && brew install spectacle --cask 
 		check_user_input "zoom" && brew install zoom
 		check_user_input "postman" && brew install postman --cask
+		check_user_input "clocker" && brew install clocker --cask
 		check_user_input "bash profile" && setup_bash_profile
 		check_user_input "git aliases" && git config --global alias.st status
 
