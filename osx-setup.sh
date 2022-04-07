@@ -39,6 +39,7 @@ function run_osx_setup {
 		${yellow_text}∆ ${red_text}Zoom${white_text} - Fairly stationary video calling.
 		${yellow_text}∆ ${red_text}Postman${white_text} - Like royal mail for the internet.
 		${yellow_text}∆ ${red_text}Clocker${white_text} - The master of Time.
+		${yellow_text}∆ ${red_text}jq${white_text} - A CLI json parser.
 		${yellow_text}∆ ${red_text}Bash profile${white_text} - Sort out your terminal.
 		${yellow_text}∆ ${red_text}Git aliases${white_text} - Make everyone else's git horrible to use.
 		${yellow_text}∆ ${red_text}Exit${white_text}
@@ -73,6 +74,7 @@ function run_osx_setup {
 		check_user_input "zoom" && brew install zoom
 		check_user_input "postman" && brew install postman --cask
 		check_user_input "clocker" && brew install clocker --cask
+		check_user_input "jq" && brew install jq
 		check_user_input "bash profile" && setup_bash_profile
 		check_user_input "git aliases" && git config --global alias.st status
 
