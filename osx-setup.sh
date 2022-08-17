@@ -43,6 +43,7 @@ function run_osx_setup {
 		${yellow_text}∆ ${red_text}Bash profile${white_text} - Sort out your terminal.
 		${yellow_text}∆ ${red_text}Git aliases${white_text} - Make everyone else's git horrible to use.
 		${yellow_text}∆ ${red_text}Neovim${white_text} - Hyperextensible Vim-basted text editor.
+		${yellow_text}∆ ${red_text}Neovim config${white_text} - I'm not a sado-masochist.
 		${yellow_text}∆ ${red_text}Exit${white_text}
 		EOV
 
@@ -79,6 +80,7 @@ function run_osx_setup {
 		check_user_input "bash profile" && setup_bash_profile
 		check_user_input "git aliases" && git config --global alias.st status
 		check_user_input "neovim" && brew install neovim
+		check_user_input "neovim config" && mkdir -p ~/.config/nvim && cp .init.vim ~/.config/nvim/init.vim
 
 		clean_exit
 	done
