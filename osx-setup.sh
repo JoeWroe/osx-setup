@@ -42,6 +42,7 @@ function run_osx_setup {
 		${yellow_text}∆ ${red_text}jq${white_text} - A CLI json parser.
 		${yellow_text}∆ ${red_text}Bash profile${white_text} - Sort out your terminal.
 		${yellow_text}∆ ${red_text}Git aliases${white_text} - Make everyone else's git horrible to use.
+		${yellow_text}∆ ${red_text}Neovim${white_text} - Hyperextensible Vim-basted text editor.
 		${yellow_text}∆ ${red_text}Exit${white_text}
 		EOV
 
@@ -77,6 +78,7 @@ function run_osx_setup {
 		check_user_input "jq" && brew install jq
 		check_user_input "bash profile" && setup_bash_profile
 		check_user_input "git aliases" && git config --global alias.st status
+		check_user_input "neovim" && brew install neovim
 
 		clean_exit
 	done
