@@ -18,7 +18,7 @@ function run_osx_setup {
 
 		${yellow_text}∆ ${red_text}Key pair${white_text} - Setup a public/private key pair.
 		${yellow_text}∆ ${red_text}Xcode${white_text} - Add Apple's IDE.
-		${yellow_text}∆ ${red_text}ZSH${white_text} - Setup ZSH configuration.
+    ${yellow_text}∆ ${red_text}ZSH${white_text} - Setup ZSH configuration (oh-my-ZSH will need to be installed first).
 		${yellow_text}∆ ${red_text}Git${white_text} - Setup Git configuration.
 		${yellow_text}∆ ${red_text}Homebrew${white_text} - The missing package manager for macOS.
 		${yellow_text}∆ ${red_text}Update Homebrew${white_text} - Usually regularly recommended.
