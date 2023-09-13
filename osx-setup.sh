@@ -38,6 +38,7 @@ function run_osx_setup {
 		${yellow_text}∆ ${red_text}Spectacle${white_text} - Like the Matrix, but with windows.
 		${yellow_text}∆ ${red_text}Zoom${white_text} - Fairly stationary video calling.
 		${yellow_text}∆ ${red_text}Postman${white_text} - Like royal mail for the internet.
+		${yellow_text}∆ ${red_text}Insomnia${white_text} - Like Postman, but doesn't steal your data.
 		${yellow_text}∆ ${red_text}Clocker${white_text} - The master of Time.
 		${yellow_text}∆ ${red_text}jq${white_text} - A CLI json parser.
 		${yellow_text}∆ ${red_text}Bash profile${white_text} - Sort out your terminal.
@@ -75,6 +76,7 @@ function run_osx_setup {
 		check_user_input "spectacle" && brew install spectacle --cask 
 		check_user_input "zoom" && brew install zoom
 		check_user_input "postman" && brew install postman --cask
+		check_user_input "insomnia" && brew install insomnia --cask
 		check_user_input "clocker" && brew install clocker --cask
 		check_user_input "jq" && brew install jq
 		check_user_input "bash profile" && setup_bash_profile
