@@ -67,7 +67,7 @@ function run_osx_setup {
 		check_user_input "nvm" && git clone http://github.com/creationix/nvm.git ~/.nvm
 		check_user_input "node" && brew install node
 		check_user_input "yarn" && brew install yarn
-		check_user_input "dotnet" && brew install --cask dotnet
+		check_user_input "dotnet" && brew install --cask dotnet-sdk
 		check_user_input "heroku toolbelt" && brew install heroku/brew/heroku
 		check_user_input "iterm2" && brew install iterm2 --cask 
 		check_user_input "atom" && brew install atom --cask 
