@@ -4,5 +4,5 @@
 # the parent loop, this prevents an exit ending the program.
 
 function clean_exit {
-	check_user_input "exit" && unset current_user_input && break
+	check_user_input "exit" && source ~/.zshrc && unset current_user_input && break
 }
