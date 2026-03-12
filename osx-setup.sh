@@ -4,95 +4,81 @@ for file in ./helpers/*; do . $file; done
 for tool_set in ./tool-sets/*.sh; do . $tool_set; done
 
 check_number_of_script_args $# 1
-set_colours
 
 user_email=$1
+PS3="Select an option: "
 
 function run_osx_setup {
-	while [ "$current_user_input" != exit ]; do
-		clear
-
-		read -d '' current_options <<-EOV
-
-		Please select what you would like to setup (type the phrase in ${red_text}red${white_text}):
-
-		${yellow_text}∆ ${red_text}Key pair${white_text} - Setup a public/private key pair.
-	${yellow_text}∆ ${red_text}ZSH${white_text} - Setup ZSH configuration (oh-my-ZSH will need to be installed first).
-		${yellow_text}∆ ${red_text}Git${white_text} - Setup Git configuration.
-		${yellow_text}∆ ${red_text}Homebrew${white_text} - The missing package manager for macOS.
-		${yellow_text}∆ ${red_text}Update Homebrew${white_text} - Usually regularly recommended.
-		${yellow_text}∆ ${red_text}Ruby related tools${white_text} - What you need to develop with Ruby.
-		${yellow_text}∆ ${red_text}Python related tools${white_text} - What you need to develop with Python.
-		${yellow_text}∆ ${red_text}NVM${white_text} - Nvr mnd.
-		${yellow_text}∆ ${red_text}Node${white_text} - If you Node, you Node.
-		${yellow_text}∆ ${red_text}Yarn${white_text} - JavaScript dependency management.
-		${yellow_text}∆ ${red_text}Dotnet${white_text} - I can't believe I've fallen this far...
-		${yellow_text}∆ ${red_text}Heroku toolbelt${white_text} - For the Heroku Cloud Platform.
-		${yellow_text}∆ ${red_text}iTerm2${white_text} - macOS terminal replacement.
-		${yellow_text}∆ ${red_text}Atom${white_text} - Text based, plug and play, source code editor.
-		${yellow_text}∆ ${red_text}IntelliJ${white_text} - Because Eclipse sucks.
-		${yellow_text}∆ ${red_text}Webstorm${white_text} - Because JetBrains.
-		${yellow_text}∆ ${red_text}Docker${white_text} - Pack, ship and run any application as a lightweight container.
-		${yellow_text}∆ ${red_text}Docker Compose${white_text} - Run Docker Compose files.
-		${yellow_text}∆ ${red_text}Colima${white_text} - Free containerization, because I won't pay for the Docker license.
-		${yellow_text}∆ ${red_text}Google Chrome${white_text} - That thing you usually us Internet Explorer to download.
-		${yellow_text}∆ ${red_text}Spectacle${white_text} - Like the Matrix, but with windows.
-		${yellow_text}∆ ${red_text}Zoom${white_text} - Fairly stationary video calling.
-		${yellow_text}∆ ${red_text}Postman${white_text} - Like royal mail for the internet.
-		${yellow_text}∆ ${red_text}Insomnia${white_text} - Like Postman, but doesn't steal your data.
-		${yellow_text}∆ ${red_text}Clocker${white_text} - The master of Time.
-		${yellow_text}∆ ${red_text}jq${white_text} - A CLI json parser.
-		${yellow_text}∆ ${red_text}Bash profile${white_text} - Sort out your terminal.
-		${yellow_text}∆ ${red_text}Git aliases${white_text} - Make everyone else's git horrible to use.
-		${yellow_text}∆ ${red_text}Neovim${white_text} - Hyperextensible Vim-basted text editor.
-		${yellow_text}∆ ${red_text}Neovim config${white_text} - I'm not a sado-masochist.
-		${yellow_text}∆ ${red_text}Exit${white_text}
-		EOV
-
-		echo "$current_options"
-
-		read current_user_input
-
-		current_user_input=$(downcase "$current_user_input")
-
-		check_user_input "key pair" && ssh-keygen -t rsa -b 4096 -C "$user_email"
-check_user_input "zsh" && cp .zshrc ~/.zshrc
-		check_user_input "git" && cp .gitconfig ~/.gitconfig
-		check_user_input "homebrew" && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-		check_user_input "update homebrew" && brew update
-		check_user_input "ruby related tools" && install_ruby_related_deps
-		check_user_input "python related tools" && install_python_related_deps
-		check_user_input "nvm" && git clone http://github.com/creationix/nvm.git ~/.nvm
-		check_user_input "node" && brew install node
-		check_user_input "yarn" && brew install yarn
-		check_user_input "dotnet" && brew install --cask dotnet-sdk
-		check_user_input "heroku toolbelt" && brew install heroku/brew/heroku
-		check_user_input "iterm2" && brew install iterm2 --cask 
-		check_user_input "atom" && brew install atom --cask 
-		check_user_input "intellij" && brew install intellij-idea --cask 
-		check_user_input "webstorm" && brew install webstorm --cask 
-		check_user_input "docker" && brew install docker
-		check_user_input "docker compose" && brew install docker-compose
-		check_user_input "colima" && brew install colima
-		check_user_input "google chrome" && brew install google-chrome --cask 
-		check_user_input "spectacle" && brew install spectacle --cask 
-		check_user_input "zoom" && brew install zoom
-		check_user_input "postman" && brew install postman --cask
-		check_user_input "insomnia" && brew install insomnia --cask
-		check_user_input "clocker" && brew install clocker --cask
-		check_user_input "jq" && brew install jq
-		check_user_input "bash profile" && setup_bash_profile
-		check_user_input "git aliases" && git config --global alias.st status
-		check_user_input "neovim" && brew install neovim
-		check_user_input "neovim config" && mkdir -p ~/.config/nvim && cp .init.vim ~/.config/nvim/init.vim
-
-		clean_exit
+	while true; do
+		select opt in \
+			"Key pair" \
+			"ZSH" \
+			"Git" \
+			"Homebrew" \
+			"Update Homebrew" \
+			"Ruby related tools" \
+			"Python related tools" \
+			"NVM" \
+			"Node" \
+			"Yarn" \
+			"Dotnet" \
+			"Heroku toolbelt" \
+			"iTerm2" \
+			"Atom" \
+			"IntelliJ" \
+			"Webstorm" \
+			"Docker" \
+			"Docker Compose" \
+			"Colima" \
+			"Google Chrome" \
+			"Spectacle" \
+			"Zoom" \
+			"Postman" \
+			"Insomnia" \
+			"Clocker" \
+			"jq" \
+			"Bash profile" \
+			"Git aliases" \
+			"Neovim" \
+			"Neovim config" \
+			"Exit"; do
+			case $opt in
+				"Key pair")           ssh-keygen -t rsa -b 4096 -C "$user_email" ;;
+				"ZSH")                cp .zshrc ~/.zshrc ;;
+				"Git")                cp .gitconfig ~/.gitconfig ;;
+				"Homebrew")           ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" ;;
+				"Update Homebrew")    brew update ;;
+				"Ruby related tools") install_ruby_related_deps ;;
+				"Python related tools") install_python_related_deps ;;
+				"NVM")                git clone http://github.com/creationix/nvm.git ~/.nvm ;;
+				"Node")               brew install node ;;
+				"Yarn")               brew install yarn ;;
+				"Dotnet")             brew install --cask dotnet-sdk ;;
+				"Heroku toolbelt")    brew install heroku/brew/heroku ;;
+				"iTerm2")             brew install --cask iterm2 ;;
+				"Atom")               brew install --cask atom ;;
+				"IntelliJ")           brew install --cask intellij-idea ;;
+				"Webstorm")           brew install --cask webstorm ;;
+				"Docker")             brew install docker ;;
+				"Docker Compose")     brew install docker-compose ;;
+				"Colima")             brew install colima ;;
+				"Google Chrome")      brew install --cask google-chrome ;;
+				"Spectacle")          brew install --cask spectacle ;;
+				"Zoom")               brew install zoom ;;
+				"Postman")            brew install --cask postman ;;
+				"Insomnia")           brew install --cask insomnia ;;
+				"Clocker")            brew install --cask clocker ;;
+				"jq")                 brew install jq ;;
+				"Bash profile")       setup_bash_profile ;;
+				"Git aliases")        git config --global alias.st status ;;
+				"Neovim")             brew install neovim ;;
+				"Neovim config")      mkdir -p ~/.config/nvim && cp .init.vim ~/.config/nvim/init.vim ;;
+				"Exit")               echo 'Setup Finished!'; return ;;
+				*)                    echo "Invalid option" ;;
+			esac
+			break
+		done
 	done
 }
 
 run_osx_setup
-
-logout
-
-echo ''
-echo 'Setup Finished!'

@@ -1,40 +1,33 @@
 function setup_bash_aliases {
-	while [ "$current_user_input" != exit ]; do
-		read -d '' current_options <<-EOV
-
-		Please select which aliases you would like to add to your bash profile. (type the phrase in ${red_text}red${white_text}):
-
-		${yellow_text}∆ ${red_text}Ascii art${white_text} - add an ascii art header to the aliases part of your bash profile.
-		${yellow_text}∆ ${red_text}Up arrow history search${white_text} - a single press of the 'up' arrow searches your bash history for the most recent, alphabetically similar command.
-		${yellow_text}∆ ${red_text}Down arrow history search${white_text} - a single press of the 'down' arrow searches your bash history for the most recent, alphabetically similar command.
-		${yellow_text}∆ ${red_text}Preferred list${white_text} - 'ls' does 'ls -FGlAhp'.
-		${yellow_text}∆ ${red_text}Exit${white_text}
-		EOV
-
-		echo "$current_options"
-
-		read current_user_input
-
-		current_user_input=$(downcase "$current_user_input")
-
-		check_user_input "ascii art" && add_ascii_art_aliases_header
-		check_user_input "up arrow history search" && add_up_arrow_bash_history_search
-		check_user_input "down arrow history search" && add_down_arrow_bash_history_search
-		check_user_input "preferred list" && add_preferred_list_alias
-
-		clean_exit
+	while true; do
+		select opt in \
+			"Ascii art" \
+			"Up arrow history search" \
+			"Down arrow history search" \
+			"Preferred list" \
+			"Exit"; do
+			case $opt in
+				"Ascii art")                 add_ascii_art_aliases_header ;;
+				"Up arrow history search")   add_up_arrow_bash_history_search ;;
+				"Down arrow history search") add_down_arrow_bash_history_search ;;
+				"Preferred list")            add_preferred_list_alias ;;
+				"Exit")                      return ;;
+				*)                           echo "Invalid option" ;;
+			esac
+			break
+		done
 	done
 }
 
-function add_ascii_art_alises_header {
+function add_ascii_art_aliases_header {
 	cat <<-EOF >>~/.bash_profile
 
-		# 
-		#      _/_/_/      _/_/      _/_/_/  _/    _/        _/_/    _/        _/_/_/    _/_/      _/_/_/  _/_/_/_/    _/_/_/   
-		#     _/    _/  _/    _/  _/        _/    _/      _/    _/  _/          _/    _/    _/  _/        _/        _/          
-		#    _/_/_/    _/_/_/_/    _/_/    _/_/_/_/      _/_/_/_/  _/          _/    _/_/_/_/    _/_/    _/_/_/      _/_/       
-		#   _/    _/  _/    _/        _/  _/    _/      _/    _/  _/          _/    _/    _/        _/  _/              _/      
-		#  _/_/_/    _/    _/  _/_/_/    _/    _/      _/    _/  _/_/_/_/  _/_/_/  _/    _/  _/_/_/    _/_/_/_/  _/_/_/         
+		#
+		#      _/_/_/      _/_/      _/_/_/  _/    _/        _/_/    _/        _/_/_/    _/_/      _/_/_/  _/_/_/_/    _/_/_/
+		#     _/    _/  _/    _/  _/        _/    _/      _/    _/  _/          _/    _/    _/  _/        _/        _/
+		#    _/_/_/    _/_/_/_/    _/_/    _/_/_/_/      _/_/_/_/  _/          _/    _/_/_/_/    _/_/    _/_/_/      _/_/
+		#   _/    _/  _/    _/        _/  _/    _/      _/    _/  _/          _/    _/    _/        _/  _/              _/
+		#  _/_/_/    _/    _/  _/_/_/    _/    _/      _/    _/  _/_/_/_/  _/_/_/  _/    _/  _/_/_/    _/_/_/_/  _/_/_/
 		#
 
 	EOF

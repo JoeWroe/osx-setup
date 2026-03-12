@@ -1,27 +1,19 @@
 function setup_bash_sugar {
-	while [ "$current_user_input" != exit ]; do
-		read -d '' current_options <<-EOV
-
-		Please select which bash profile sugar you would like to add. (type the phrase in ${red_text}red${white_text}):
-
-		${yellow_text}∆ ${red_text}Ascii art${white_text} - add an ascii art header to the sugar part of your bash profile.
-		${yellow_text}∆ ${red_text}Command prompt${white_text} - add a friendly command prompt.
-		${yellow_text}∆ ${red_text}Coloured output${white_text} - add colour to the text output from common terminal commands.
-		${yellow_text}∆ ${red_text}Exit${white_text}
-
-		EOV
-
-		echo "$current_options"
-
-		read current_user_input
-
-		current_user_input=$(downcase "$current_user_input")
-
-		check_user_input "ascii art" && add_ascii_art_sugar_header
-		check_user_input "command prompt" && add_command_prompt
-		check_user_input "coloured output" && add_coloured_terminal_output
-
-		clean_exit
+	while true; do
+		select opt in \
+			"Ascii art" \
+			"Command prompt" \
+			"Coloured output" \
+			"Exit"; do
+			case $opt in
+				"Ascii art")      add_ascii_art_sugar_header ;;
+				"Command prompt") add_command_prompt ;;
+				"Coloured output") add_coloured_terminal_output ;;
+				"Exit")           return ;;
+				*)                echo "Invalid option" ;;
+			esac
+			break
+		done
 	done
 }
 
@@ -29,16 +21,16 @@ function add_ascii_art_sugar_header {
 	cat <<-EOF >>~/.bash_profile
 
 		#
-		#      _/_/_/      _/_/      _/_/_/  _/    _/        _/_/_/  _/    _/    _/_/_/    _/_/    _/_/_/    
-		#     _/    _/  _/    _/  _/        _/    _/      _/        _/    _/  _/        _/    _/  _/    _/   
-		#    _/_/_/    _/_/_/_/    _/_/    _/_/_/_/        _/_/    _/    _/  _/  _/_/  _/_/_/_/  _/_/_/      
-		#   _/    _/  _/    _/        _/  _/    _/            _/  _/    _/  _/    _/  _/    _/  _/    _/     
-		#  _/_/_/    _/    _/  _/_/_/    _/    _/      _/_/_/      _/_/      _/_/_/  _/    _/  _/    _/      
+		#      _/_/_/      _/_/      _/_/_/  _/    _/        _/_/_/  _/    _/    _/_/_/    _/_/    _/_/_/
+		#     _/    _/  _/    _/  _/        _/    _/      _/        _/    _/  _/        _/    _/  _/    _/
+		#    _/_/_/    _/_/_/_/    _/_/    _/_/_/_/        _/_/    _/    _/  _/  _/_/  _/_/_/_/  _/_/_/
+		#   _/    _/  _/    _/        _/  _/    _/            _/  _/    _/  _/    _/  _/    _/  _/    _/
+		#  _/_/_/    _/    _/  _/_/_/    _/    _/      _/_/_/      _/_/      _/_/_/  _/    _/  _/    _/
 		#
 
 	EOF
 }
-                                                                                              
+
 function add_command_prompt {
 	cat <<'        EOF' >>~/.bash_profile
 
