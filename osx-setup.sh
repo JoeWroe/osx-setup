@@ -13,7 +13,7 @@ function run_osx_setup {
 		select opt in \
 			"Key pair" \
 			"ZSH" \
-			"Git" \
+			"Git config" \
 			"Homebrew" \
 			"Update Homebrew" \
 			"Ruby related tools" \
@@ -32,7 +32,6 @@ function run_osx_setup {
 			"Docker Compose" \
 			"Colima" \
 			"Google Chrome" \
-			"Spectacle" \
 			"Zoom" \
 			"Postman" \
 			"Insomnia" \
@@ -47,7 +46,7 @@ function run_osx_setup {
 			case $opt in
 				"Key pair")           ssh-keygen -t rsa -b 4096 -C "$user_email" ;;
 				"ZSH")                cp .zshrc ~/.zshrc ;;
-				"Git")                cp .gitconfig ~/.gitconfig ;;
+				"Git config")         cp .gitconfig ~/.gitconfig ;;
 				"Homebrew")           ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" ;;
 				"Update Homebrew")    brew update ;;
 				"Ruby related tools") install_ruby_related_deps ;;
@@ -66,7 +65,6 @@ function run_osx_setup {
 				"Docker Compose")     brew install docker-compose ;;
 				"Colima")             brew install colima ;;
 				"Google Chrome")      brew install --cask google-chrome ;;
-				"Spectacle")          brew install --cask spectacle ;;
 				"Zoom")               brew install zoom ;;
 				"Postman")            brew install --cask postman ;;
 				"Insomnia")           brew install --cask insomnia ;;
