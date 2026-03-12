@@ -58,7 +58,7 @@ function run_osx_setup {
 				"Dotnet")             brew install --cask dotnet-sdk ;;
 				"Heroku toolbelt")    brew install heroku/brew/heroku ;;
 				"Ghostty")            brew install --cask ghostty ;;
-			"iTerm2")             brew install --cask iterm2 ;;
+				"iTerm2")             brew install --cask iterm2 ;;
 				"Atom")               brew install --cask atom ;;
 				"IntelliJ")           brew install --cask intellij-idea ;;
 				"Webstorm")           brew install --cask webstorm ;;
@@ -72,7 +72,7 @@ function run_osx_setup {
 				"Insomnia")           brew install --cask insomnia ;;
 				"Clocker")            brew install --cask clocker ;;
 				"Claude Code")        brew install --cask claude-code ;;
-			"jq")                 brew install jq ;;
+				"jq")                 brew install jq ;;
 				"Bash profile")       setup_bash_profile ;;
 				"Git aliases")        git config --global alias.st status ;;
 				"Neovim")             brew install neovim ;;
