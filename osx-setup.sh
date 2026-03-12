@@ -23,6 +23,7 @@ function run_osx_setup {
 			"Yarn" \
 			"Dotnet" \
 			"Heroku toolbelt" \
+			"Ghostty" \
 			"iTerm2" \
 			"Atom" \
 			"IntelliJ" \
@@ -36,6 +37,7 @@ function run_osx_setup {
 			"Postman" \
 			"Insomnia" \
 			"Clocker" \
+			"Claude Code" \
 			"jq" \
 			"Bash profile" \
 			"Git aliases" \
@@ -55,7 +57,8 @@ function run_osx_setup {
 				"Yarn")               brew install yarn ;;
 				"Dotnet")             brew install --cask dotnet-sdk ;;
 				"Heroku toolbelt")    brew install heroku/brew/heroku ;;
-				"iTerm2")             brew install --cask iterm2 ;;
+				"Ghostty")            brew install --cask ghostty ;;
+			"iTerm2")             brew install --cask iterm2 ;;
 				"Atom")               brew install --cask atom ;;
 				"IntelliJ")           brew install --cask intellij-idea ;;
 				"Webstorm")           brew install --cask webstorm ;;
@@ -68,7 +71,8 @@ function run_osx_setup {
 				"Postman")            brew install --cask postman ;;
 				"Insomnia")           brew install --cask insomnia ;;
 				"Clocker")            brew install --cask clocker ;;
-				"jq")                 brew install jq ;;
+				"Claude Code")        brew install --cask claude-code ;;
+			"jq")                 brew install jq ;;
 				"Bash profile")       setup_bash_profile ;;
 				"Git aliases")        git config --global alias.st status ;;
 				"Neovim")             brew install neovim ;;
