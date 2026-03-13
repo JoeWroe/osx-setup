@@ -45,6 +45,8 @@ function run_languages_setup {
 				"Python related tools")     install_python_related_deps ;;
 				"C# related tools")         install_csharp_related_deps ;;
 				"Exit")                     return ;;
+				*)                 	    echo "Invalid option" ;;
+			esac
 			break
 		done
 	done
