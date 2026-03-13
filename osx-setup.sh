@@ -11,19 +11,17 @@ PS3="Select an option: "
 function run_system_setup {
 	while true; do
 		select opt in \
-			"Key pair" \
-			"ZSH" \
-			"Git config" \
 			"Homebrew" \
 			"Update Homebrew" \
+			"Git config" \
+			"ZSH" \
 			"Bash profile" \
 			"Exit"; do
 			case $opt in
-				"Key pair")        ssh-keygen -t rsa -b 4096 -C "$user_email" ;;
-				"ZSH")             cp .zshrc ~/.zshrc ;;
-				"Git config")      cp .gitconfig ~/.gitconfig ;;
 				"Homebrew")        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" ;;
 				"Update Homebrew") brew update ;;
+				"Git config")      mkdir -p ~/.config/git/functions && cp ./configs/git/.gitconfig ~/.gitconfig && cp ./configs/git/ping.sh ./configs/git/pong.sh ~/.config/git/functions/ ;;
+				"ZSH")             cp .zshrc ~/.zshrc ;;
 				"Bash profile")    setup_bash_profile ;;
 				"Exit")            return ;;
 				*)                 echo "Invalid option" ;;
@@ -47,8 +45,6 @@ function run_languages_setup {
 				"Python related tools")     install_python_related_deps ;;
 				"C# related tools")         install_csharp_related_deps ;;
 				"Exit")                     return ;;
-				*)                          echo "Invalid option" ;;
-			esac
 			break
 		done
 	done
