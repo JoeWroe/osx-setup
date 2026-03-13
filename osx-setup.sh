@@ -18,7 +18,7 @@ function run_system_setup {
 			"Bash profile" \
 			"Exit"; do
 			case $opt in
-				"Homebrew")        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" ;;
+				"Homebrew")        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" ;;
 				"Update Homebrew") brew update ;;
 				"Git config")      mkdir -p ~/.config/git/functions && cp ./configs/git/.gitconfig ~/.gitconfig && cp ./configs/git/ping.sh ./configs/git/pong.sh ~/.config/git/functions/ ;;
 				"ZSH")             cp .zshrc ~/.zshrc ;;
