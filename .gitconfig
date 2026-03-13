@@ -9,6 +9,7 @@
     status = auto
 [core]
     editor = nvim
+	  symlinks = false
 [push]
     default = simple
 [pull]
@@ -21,3 +22,7 @@
     eod = push origin +HEAD:joe/eod
     sod = reset --hard origin/joe/eod
     patch = "add --intent-to-add . && git add --patch"
+    ping = "!sh $HOME/.config/git/functions/ping.sh $1"
+    pong = "!sh $HOME/.config/git/functions/pong.sh $1"
+[init]
+	  templatedir = /Users/joe/.git-template
