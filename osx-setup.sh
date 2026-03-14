@@ -114,18 +114,24 @@ function run_infrastructure_setup {
 function run_apps_setup {
 	while true; do
 		select opt in \
+			"1Password" \
+			"1Password CLI" \
 			"Google Chrome" \
 			"Zoom" \
 			"Clocker" \
 			"Postman" \
 			"Insomnia" \
+			"Steam" \
 			"Exit"; do
 			case $opt in
+				"1Password")	 brew install --cask 1password ;;
+				"1Password CLI") brew install --cask 1password-cli ;;
 				"Google Chrome") brew install --cask google-chrome ;;
-				"Zoom")          brew install zoom ;;
+				"Zoom")          brew install --cask zoom ;;
 				"Clocker")       brew install --cask clocker ;;
 				"Postman")       brew install --cask postman ;;
 				"Insomnia")      brew install --cask insomnia ;;
+				"Steam")	 brea install --cask steam ;;
 				"Exit")          return ;;
 				*)               echo "Invalid option" ;;
 			esac
