@@ -131,7 +131,7 @@ function run_apps_setup {
 				"Clocker")       brew install --cask clocker ;;
 				"Postman")       brew install --cask postman ;;
 				"Insomnia")      brew install --cask insomnia ;;
-				"Steam")	 brea install --cask steam ;;
+				"Steam")	 brew install --cask steam ;;
 				"Exit")          return ;;
 				*)               echo "Invalid option" ;;
 			esac
