@@ -9,7 +9,11 @@ Before you can clone this repo, you need Git. On a fresh Mac, the quickest way i
 xcode-select --install
 ```
 
-A dialog will appear asking you to install the tools — follow the prompts. Once complete, Git will be available and you can clone this repo:
+A dialog will appear asking you to install the tools — follow the prompts. Once complete, Git will be available. Next you will need an SSH Key/Value pair for authentication to Github, navigate to this link:
+
+[Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+Finally, clone the repo and run the setup script:
 
 ```sh
 git clone git@github.com:JoeWroe/osx-setup.git
