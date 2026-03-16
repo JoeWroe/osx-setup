@@ -117,6 +117,7 @@ function run_apps_setup {
 			"1Password" \
 			"1Password CLI" \
 			"Google Chrome" \
+			"Zen Browser" \
 			"Zoom" \
 			"Clocker" \
 			"Postman" \
@@ -127,6 +128,7 @@ function run_apps_setup {
 				"1Password")	 brew install --cask 1password ;;
 				"1Password CLI") brew install --cask 1password-cli ;;
 				"Google Chrome") brew install --cask google-chrome ;;
+				"Zen Browser") 	 brew install --cask zen ;;
 				"Zoom")          brew install --cask zoom ;;
 				"Clocker")       brew install --cask clocker ;;
 				"Postman")       brew install --cask postman ;;
