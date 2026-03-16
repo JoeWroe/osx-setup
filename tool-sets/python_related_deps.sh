@@ -1,22 +1,20 @@
 function install_python_related_deps {
 	while true; do
 		select opt in \
+			"uv" \
 			"Python 3" \
+			"Pyright" \
 			"Pipenv" \
-			"Pyenv" \
-			"Pip" \
-			"Virtualenv" \
 			"Pynvim" \
 			"Exit"; do
 			case $opt in
-				"Python 3")   brew install python@3 ;;
-				"Pipenv")     brew install pipenv ;;
-				"Pyenv")      brew install pyenv ;;
-				"Pip")        pip3 install --upgrade pip ;;
-				"Virtualenv") pip3 install virtualenv ;;
-				"Pynvim")     install_pynvim ;;
-				"Exit")       return ;;
-				*)            echo "Invalid option" ;;
+				"uv")      brew install uv ;;
+				"Python 3") uv python install ;;
+				"Pyright")  uv tool install pyright ;;
+				"Pipenv")   uv tool install pipenv ;;
+				"Pynvim")   install_pynvim ;;
+				"Exit")     return ;;
+				*)          echo "Invalid option" ;;
 			esac
 			break
 		done
@@ -25,9 +23,8 @@ function install_python_related_deps {
 
 function install_pynvim {
 	mkdir -p ~/.virtualenv
-	cd ~/.virtualenv
-	python3 -m venv ./neovim
-	source neovim/bin/activate
-	pip install --upgrade pynvim
+	uv venv ~/.virtualenv/neovim
+	source ~/.virtualenv/neovim/bin/activate
+	uv pip install pynvim
 	echo "Done!"
 }

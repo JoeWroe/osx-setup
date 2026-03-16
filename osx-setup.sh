@@ -65,7 +65,7 @@ function run_terminal_setup {
 				"Ghostty")       brew install --cask ghostty ;;
 				"iTerm2")        brew install --cask iterm2 ;;
 				"Neovim")        brew install neovim ;;
-				"Neovim config") mkdir -p ~/.config/nvim && cp .init.vim ~/.config/nvim/init.vim ;;
+				"Neovim config") git clone https://github.com/JoeWroe/nvim.git ~/.config/nvim ;;
 				"Claude Code")   brew install --cask claude-code ;;
 				"Exit")          return ;;
 				*)               echo "Invalid option" ;;
