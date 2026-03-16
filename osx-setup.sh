@@ -21,7 +21,7 @@ function run_system_setup {
 				"Homebrew")        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" ;;
 				"Update Homebrew") brew update ;;
 				"Git config")      mkdir -p ~/.config/git/functions && cp ./configs/git/.gitconfig ~/.gitconfig && cp ./configs/git/ping.sh ./configs/git/pong.sh ~/.config/git/functions/ ;;
-				"ZSH")             cp .zshrc ~/.zshrc ;;
+				"ZSH")             sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended && cp .zshrc ~/.zshrc ;;
 				"Bash profile")    setup_bash_profile ;;
 				"Exit")            return ;;
 				*)                 echo "Invalid option" ;;
