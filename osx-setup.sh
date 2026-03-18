@@ -106,23 +106,25 @@ function run_apps_setup {
 		select opt in \
 			"1Password" \
 			"1Password CLI" \
-			"Google Chrome" \
-			"Zen Browser" \
-			"Zoom" \
 			"Clocker" \
-			"Postman" \
+			"Google Chrome" \
 			"Insomnia" \
-			"Steam"; do
+      "Insta 360" \
+			"Postman" \
+			"Steam" \
+			"Zen Browser" \
+			"Zoom"; do
 			case $opt in
-				"1Password")	 brew install --cask 1password ;;
+				"1Password")	   brew install --cask 1password ;;
 				"1Password CLI") brew install --cask 1password-cli ;;
+				"Clocker")       brew install --cask clocker ;;
 				"Google Chrome") brew install --cask google-chrome ;;
+				"Insomnia")      brew install --cask insomnia ;;
+        "Insta 360")     brew install --cask insta360-link-controller ;;
+				"Postman")       brew install --cask postman ;;
+				"Steam")	       brew install --cask steam ;;
 				"Zen Browser") 	 brew install --cask zen ;;
 				"Zoom")          brew install --cask zoom ;;
-				"Clocker")       brew install --cask clocker ;;
-				"Postman")       brew install --cask postman ;;
-				"Insomnia")      brew install --cask insomnia ;;
-				"Steam")	 brew install --cask steam ;;
 				*)               [[ $REPLY == "q" ]] && return; [[ $REPLY == "Q" ]] && { echo 'Setup Finished!'; exit 0; }; echo "Invalid option" ;;
 			esac
 			break
