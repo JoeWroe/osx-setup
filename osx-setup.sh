@@ -60,7 +60,7 @@ function run_terminal_setup {
 				"Ghostty")       brew install --cask ghostty ;;
 				"iTerm2")        brew install --cask iterm2 ;;
 				"Neovim")        brew install neovim ;;
-				"Neovim config") git clone https://github.com/JoeWroe/nvim.git ~/.config/nvim ;;
+				"Neovim config") git clone git@github.com:JoeWroe/nvim.git ~/.config/nvim ;;
 				"Claude Code")   brew install --cask claude-code ;;
 				*)               [[ $REPLY == "q" ]] && return; [[ $REPLY == "Q" ]] && { echo 'Setup Finished!'; exit 0; }; echo "Invalid option" ;;
 			esac
