@@ -110,6 +110,7 @@ function run_apps_setup {
 			"Google Chrome" \
 			"Insomnia" \
       "Insta 360" \
+      "Obsidian" \
 			"Postman" \
 			"Steam" \
 			"Zen Browser" \
@@ -121,6 +122,7 @@ function run_apps_setup {
 				"Google Chrome") brew install --cask google-chrome ;;
 				"Insomnia")      brew install --cask insomnia ;;
         "Insta 360")     brew install --cask insta360-link-controller ;;
+        "Obsidian")      brew install --cask obsidian ;;
 				"Postman")       brew install --cask postman ;;
 				"Steam")	       brew install --cask steam ;;
 				"Zen Browser") 	 brew install --cask zen ;;
