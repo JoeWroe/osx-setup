@@ -73,10 +73,12 @@ function run_editors_setup {
 	while true; do
 		select opt in \
 			"Atom" \
+      "Cursor" \
 			"IntelliJ" \
 			"Webstorm"; do
 			case $opt in
 				"Atom")     brew install --cask atom ;;
+        "Cursor")   brew install --cask cursor ;;
 				"IntelliJ") brew install --cask intellij-idea ;;
 				"Webstorm") brew install --cask webstorm ;;
 				*)          [[ $REPLY == "q" ]] && return; [[ $REPLY == "Q" ]] && { echo 'Setup Finished!'; exit 0; }; echo "Invalid option" ;;
@@ -111,6 +113,7 @@ function run_apps_setup {
 			"Insomnia" \
       "Insta 360" \
       "Obsidian" \
+      "Okta Verify" \
 			"Postman" \
 			"Steam" \
 			"Zen Browser" \
@@ -123,6 +126,7 @@ function run_apps_setup {
 				"Insomnia")      brew install --cask insomnia ;;
         "Insta 360")     brew install --cask insta360-link-controller ;;
         "Obsidian")      brew install --cask obsidian ;;
+        "Okta Verify")   brew install --cask okta-verify ;;
 				"Postman")       brew install --cask postman ;;
 				"Steam")	       brew install --cask steam ;;
 				"Zen Browser") 	 brew install --cask zen ;;
