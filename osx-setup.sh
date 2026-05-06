@@ -1,4 +1,4 @@
-#!/bin/bash --login
+#!/usr/bin/env bash
 
 for file in ./helpers/*; do . $file; done
 for tool_set in ./tool-sets/*.sh; do . $tool_set; done
@@ -13,12 +13,14 @@ function run_system_setup {
 		select opt in \
 			"Homebrew" \
 			"Update Homebrew" \
+			"Bash" \
 			"Git config" \
 			"ZSH" \
 			"Bash profile"; do
 			case $opt in
 				"Homebrew")        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" ;;
 				"Update Homebrew") brew update ;;
+				"Bash")            brew install bash ;;
 				"Git config")      mkdir -p ~/.config/git/functions && cp ./configs/git/.gitconfig ~/.gitconfig && cp ./configs/git/ping.sh ./configs/git/pong.sh ~/.config/git/functions/ ;;
 				"ZSH")             sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended && cp .zshrc ~/.zshrc ;;
 				"Bash profile")    setup_bash_profile ;;
