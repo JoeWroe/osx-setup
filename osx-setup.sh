@@ -32,11 +32,13 @@ function run_system_setup {
 function run_languages_setup {
 	while true; do
 		select opt in \
+			"Java related tools" \
 			"Ruby related tools" \
 			"Javascript related tools" \
 			"Python related tools" \
 			"C# related tools"; do
 			case $opt in
+				"Java related tools")       install_java_related_deps ;;
 				"Ruby related tools")       install_ruby_related_deps ;;
 				"Javascript related tools") install_javascript_related_deps ;;
 				"Python related tools")     install_python_related_deps ;;
@@ -141,11 +143,13 @@ function run_apps_setup {
 function run_cli_tools_setup {
 	while true; do
 		select opt in \
-			"jq" \
-			"Git aliases"; do
+			"Git aliases" \
+      "GitHub CLI" \
+			"jq"; do
 			case $opt in
-				"jq")          brew install jq ;;
 				"Git aliases") git config --global alias.st status ;;
+        "GitHub CLI")  brew install gh ;;
+				"jq")          brew install jq ;;
 				*)             [[ $REPLY == "q" ]] && return; [[ $REPLY == "Q" ]] && { echo 'Setup Finished!'; exit 0; }; echo "Invalid option" ;;
 			esac
 			break
