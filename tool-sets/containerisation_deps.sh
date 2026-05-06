@@ -10,7 +10,7 @@ function install_containerisation_deps {
 				"Docker Compose") brew install docker-compose ;;
 				"Colima")         brew install colima ;;
 				"Exit")           return ;;
-				*)                echo "Invalid option" ;;
+				*)                [[ $REPLY == "q" ]] && return; [[ $REPLY == "Q" ]] && { echo 'Setup Finished!'; exit 0; }; echo "Invalid option" ;;
 			esac
 			break
 		done

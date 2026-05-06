@@ -10,7 +10,7 @@ function install_ruby_related_deps {
 				"Ruby") rvm use ruby --install --default && ruby -v ;;
 				"Pry")  gem install pry ;;
 				"Exit") return ;;
-				*)      echo "Invalid option" ;;
+				*)      [[ $REPLY == "q" ]] && return; [[ $REPLY == "Q" ]] && { echo 'Setup Finished!'; exit 0; }; echo "Invalid option" ;;
 			esac
 			break
 		done

@@ -6,7 +6,7 @@ function install_csharp_related_deps {
 			case $opt in
 				"Dotnet") brew install --cask dotnet-sdk ;;
 				"Exit")   return ;;
-				*)        echo "Invalid option" ;;
+				*)        [[ $REPLY == "q" ]] && return; [[ $REPLY == "Q" ]] && { echo 'Setup Finished!'; exit 0; }; echo "Invalid option" ;;
 			esac
 			break
 		done

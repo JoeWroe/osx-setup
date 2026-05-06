@@ -12,7 +12,7 @@ function install_java_related_deps {
 				"Maven")     sdk install maven ;;
 				"Gradle")    sdk install gradle ;;
 				"Exit")   return ;;
-				*)        echo "Invalid option" ;;
+				*)        [[ $REPLY == "q" ]] && return; [[ $REPLY == "Q" ]] && { echo 'Setup Finished!'; exit 0; }; echo "Invalid option" ;;
 			esac
 			break
 		done

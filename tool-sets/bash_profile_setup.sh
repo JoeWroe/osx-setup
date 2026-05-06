@@ -10,7 +10,7 @@ function setup_bash_profile {
 				"Bash sugar")   setup_bash_sugar ;;
 				"Bash aliases") setup_bash_aliases ;;
 				"Exit")         source ~/.zshrc; return ;;
-				*)              echo "Invalid option" ;;
+				*)              [[ $REPLY == "q" ]] && return; [[ $REPLY == "Q" ]] && { echo 'Setup Finished!'; exit 0; }; echo "Invalid option" ;;
 			esac
 			break
 		done

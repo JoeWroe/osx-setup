@@ -14,7 +14,7 @@ function install_python_related_deps {
 				"Pipenv")   uv tool install pipenv ;;
 				"Pynvim")   install_pynvim ;;
 				"Exit")     return ;;
-				*)          echo "Invalid option" ;;
+				*)          [[ $REPLY == "q" ]] && return; [[ $REPLY == "Q" ]] && { echo 'Setup Finished!'; exit 0; }; echo "Invalid option" ;;
 			esac
 			break
 		done
